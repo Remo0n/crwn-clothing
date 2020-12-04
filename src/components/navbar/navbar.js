@@ -4,10 +4,11 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon";
+import CartDropdown from "../cart-dropdown/cart-dropdown";
 
 import "./navbar.style.scss";
 
-const Navbar = ({ currentUser }) => {
+const Navbar = ({ currentUser, open }) => {
   return (
     <div className="navbar">
       <Link to="/">
@@ -32,12 +33,14 @@ const Navbar = ({ currentUser }) => {
         )}
         <CartIcon />
       </div>
+      {open && <CartDropdown />}
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser,
+  open: state.cart.open
 });
 
 export default connect(mapStateToProps)(Navbar);
