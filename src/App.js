@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "./pages/homepage/homepage";
 import ShopPage from "./pages/shop/shop";
+import Checkout from "./pages/checkout/checkout";
 import Navbar from "./components/navbar/navbar";
 import SigninAndSignup from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
@@ -33,6 +34,7 @@ const App = ({ setCurrentUser, currentUser }) => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/checkout" component={Checkout} />
         <Route
           exact
           path="/signin"
