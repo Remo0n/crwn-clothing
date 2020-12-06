@@ -6,6 +6,7 @@ import Checkout from "./pages/checkout/checkout";
 import Navbar from "./components/navbar/navbar";
 import SigninAndSignup from "./pages/sign-in-and-sign-up/sign-in-and-sign-up";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import CollectionPage from "./pages/collection/collection";
 
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.actions";
@@ -42,6 +43,7 @@ const App = ({ setCurrentUser, currentUser }) => {
             currentUser ? <Redirect to="/" /> : <SigninAndSignup />
           }
         />
+        <Route path={`/shop/:collectionId`} component={CollectionPage} />
       </Switch>
     </div>
   );
